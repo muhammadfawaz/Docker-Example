@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Docker Image
         working-directory: docker
-        run: docker build ${{ secrets.DOCKER_USERNAME }}/greeting:latest
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/greeting:latest .
 
       - name: push Docker Image
         working-directory: docker
