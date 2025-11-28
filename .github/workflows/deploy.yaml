@@ -19,8 +19,7 @@ on:
         - name: Setup Node.jobs
           uses: actions/Setup-node@v2
           with:
-            node-version: 20
-
+            node-version: 18
         - name: Install Dependencies
           run: npm install
 
