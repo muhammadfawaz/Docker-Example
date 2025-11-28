@@ -8,23 +8,24 @@ on:
     branches:
       - main
 
-    jobs:
-    build:
-      runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout Code
-          uses: actions/checkout
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-        - name: Setup Node.jobs
-          uses: actions/Setup-node@v2
-          with:
-            node-version: 18
-        - name: Install Dependencies
-          run: npm install
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
-        - name: Skip Tests for CI/CD Demo
-          run: echo "Skipping tests for CI/CD demo"
+      - name: Install Dependencies
+        run: npm install
 
-        - name: Build React App
-          run: CI=false npm run build
+      - name: Skip Tests for CI/CD Demo
+        run: echo "Skipping tests for CI/CD demo"
+
+      - name: Build React App
+        run: CI=false npm run build
