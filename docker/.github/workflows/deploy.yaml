@@ -1,0 +1,31 @@
+name: CI/CD for Greeting React App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+    jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout
+
+        - name: Setup Node.jobs
+          uses: actions/Setup-node@v2
+          with:
+            node-version: 20
+
+        - name: Install Dependencies
+          run: npm install
+
+        - name: Skip Tests for CI/CD Demo
+          run: echo "Skipping tests for CI/CD demo"
+
+        - name: Build React App
+          run: CI=false npm run build
