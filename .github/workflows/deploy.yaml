@@ -42,7 +42,7 @@ jobs:
       - name: Build Docker Image
         working-directory: docker
         run: |
-          cd Docker 
+          cd docker 
           docker build -t ${{ secrets.DOCKER_USERNAME }}/testexample:latest .
 
       - name: push Docker Image
